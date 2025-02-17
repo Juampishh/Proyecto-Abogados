@@ -14,15 +14,15 @@ const Header: React.FC = () => {
           <div className="whitespace-nowrap animate-marquee">
             <div className="inline-block mr-8">
               <FaPhoneAlt className="inline-block mr-2" />
-              <span>Contáctanos: 123-456-789</span>
+              <span>Contáctanos: +54-3794-336030</span>
             </div>
             <div className="inline-block mr-8 ml-16">
               <FaEnvelope className="inline-block mr-2" />
-              <span>contacto@empresa.com</span>
+              <span>info.solucionesjuridicasctes@gmail.com</span>
             </div>
             <div className="inline-block ml-16">
               <FaMapMarkerAlt className="inline-block mr-2" />
-              <span>Dirección: Calle Ficticia 123, Ciudad</span>
+              <span>Dirección: Tucuman 588, Corrientes Capital</span>
             </div>
           </div>
         </div>

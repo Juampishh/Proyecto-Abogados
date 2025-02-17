@@ -73,7 +73,7 @@ const Banner: React.FC = () => {
         transition={{ duration: 1, delay: 1 }}
         onClick={handleScrollDown}
       >
-        <FaChevronDown className="text-white text-4xl animate-bounce" />
+        <FaChevronDown className="text-black text-4xl animate-bounce" />
       </motion.div>
     </section>
   );

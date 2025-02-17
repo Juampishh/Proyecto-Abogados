@@ -6,7 +6,9 @@ const WhatsAppIcon: React.FC = () => {
 
   const handleClick = () => {
     // Redirige a WhatsApp con el mensaje predefinido
-    const url = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/543794336030?text=${encodeURIComponent(
+      message
+    )}`;
     window.open(url, "_blank");
   };
 

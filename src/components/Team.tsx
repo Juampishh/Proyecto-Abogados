@@ -9,9 +9,21 @@ interface Lawyer {
 
 const Team: React.FC = () => {
   const lawyers: Lawyer[] = [
-    { name: "Dra. Ana Pérez", image: "abogado.jpg", title: "ABOGADA" },
-    { name: "Dr. Juan Gómez", image: "abogado.jpg", title: "ABOGADO" },
-    { name: "Dra. María Rodríguez", image: "abogado.jpg", title: "ABOGADA" },
+    {
+      name: "Dr. Clemente Gabriel Inza",
+      image: "abogado.jpeg",
+      title: "ABOGADO",
+    },
+    {
+      name: "Dra. Maria Emilia Quevedo",
+      image: "Maria Emilia.jpeg",
+      title: "ABOGADA",
+    },
+    {
+      name: "Dra. Veronica Daniela Falcon",
+      image: "abogado 3.jpeg",
+      title: "ABOGADA",
+    },
   ];
 
   return (

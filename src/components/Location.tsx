@@ -29,7 +29,7 @@ const Location: React.FC = () => {
               <FaPhoneAlt className="text-4xl text-white mb-4" />
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-white">Teléfono</h3>
-                <p className="text-gray-300">123-456-789</p>
+                <p className="text-gray-300">+54-3794-336030</p>
               </div>
             </div>
             <div className="flex flex-col items-center">
@@ -38,7 +38,9 @@ const Location: React.FC = () => {
                 <h3 className="text-xl font-semibold text-white">
                   Correo Electrónico
                 </h3>
-                <p className="text-gray-300">contacto@empresa.com</p>
+                <p className="text-gray-300">
+                  info.solucionesjuridicasctes@gmail.com
+                </p>
               </div>
             </div>
           </div>
