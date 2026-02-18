@@ -10,7 +10,7 @@ import WhatsAppIcon from "../components/WhatsAppIcon";
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen text-gray-800">
+    <div className="min-h-screen">
       <Header />
       <Banner />
       <WhyChooseUs />

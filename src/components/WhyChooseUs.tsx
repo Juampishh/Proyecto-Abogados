@@ -1,85 +1,65 @@
 import { motion } from "framer-motion";
-import { FaAward, FaLightbulb, FaUserTie } from "react-icons/fa";
+import { WHY_CHOOSE_US } from "../constants/content";
 
 const WhyChooseUs = () => {
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section className="bg-[#1E2A38] text-white py-20">
-      <div className="container mx-auto text-center">
-        <motion.h2
-          className="text-4xl font-semibold mb-6"
-          initial="hidden"
-          animate="visible"
-          variants={sectionVariants}
-        >
-          ¿Por qué elegirnos?
-        </motion.h2>
-        <motion.p
-          className="text-xl mb-12 px-4"
-          initial="hidden"
-          animate="visible"
-          variants={sectionVariants}
-        >
-          Con más de 30 años de experiencia, somos el socio jurídico que
-          necesitas para afrontar cualquier desafío legal, con un enfoque
-          personalizado y soluciones innovadoras.
-        </motion.p>
+    <section className="bg-primary text-white py-24 relative overflow-hidden">
+      {/* Background Subtle Pattern */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+        <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent rounded-full blur-[100px]" />
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left Column: Heading */}
           <motion.div
-            className="p-8 bg-[#E3E3E3] rounded-xl shadow-lg transform hover:scale-105 transition-all flex flex-col items-center"
-            initial="hidden"
-            animate="visible"
-            variants={cardVariants}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <FaAward className="text-4xl text-[#243551] mb-4" />
-            <h3 className="text-2xl font-semibold mb-4 text-[#243551]">
-              Experiencia Inigualable
-            </h3>
-            <p className="text-[#243551]">
-              Más de tres décadas en el sector, brindando soluciones efectivas y
-              confiables.
-            </p>
+            <h4 className="text-accent text-sm font-bold uppercase tracking-[0.2em] mb-6">Nuestra Firma</h4>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8">
+              ¿Por qué elegir <br /> <span className="text-gray-400">Estudio Tucumán?</span>
+            </h2>
+            <div className="bg-white/10 p-8 border-l-4 border-accent">
+              <p className="text-xl text-gray-300 italic font-serif">
+                "Con más de 30 años de experiencia, somos el socio jurídico que necesitas para afrontar cualquier desafío legal, con un enfoque personalizado y soluciones innovadoras."
+              </p>
+            </div>
           </motion.div>
-          <motion.div
-            className="p-8 bg-[#E3E3E3] rounded-xl shadow-lg transform hover:scale-105 transition-all flex flex-col items-center"
-            initial="hidden"
-            animate="visible"
-            variants={cardVariants}
-          >
-            <FaLightbulb className="text-4xl text-[#243551] mb-4" />
-            <h3 className="text-2xl font-semibold mb-4 text-[#243551]">
-              Innovación Continua
-            </h3>
-            <p className="text-[#243551]">
-              Adoptamos las mejores tecnologías y estrategias para proporcionar
-              servicios legales de vanguardia.
-            </p>
-          </motion.div>
-          <motion.div
-            className="p-8 bg-[#E3E3E3] rounded-xl shadow-lg transform hover:scale-105 transition-all flex flex-col items-center"
-            initial="hidden"
-            animate="visible"
-            variants={cardVariants}
-          >
-            <FaUserTie className="text-4xl text-[#243551] mb-4" />
-            <h3 className="text-2xl font-semibold mb-4 text-[#243551]">
-              Atención Personalizada
-            </h3>
-            <p className="text-[#243551]">
-              Nos enfocamos en cada cliente, brindando atención individualizada
-              y soluciones a medida.
-            </p>
-          </motion.div>
+
+          {/* Right Column: List */}
+          <div className="space-y-8">
+            {WHY_CHOOSE_US.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={index}
+                  className="flex items-start group"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <div className="flex-shrink-0 mr-6">
+                    <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-all duration-500">
+                      <Icon className="text-2xl text-accent" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-accent transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed text-lg">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -87,3 +67,4 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
+

@@ -1,100 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaBook,
-  FaBalanceScale,
-  FaHandshake,
-  FaGavel,
-  FaUserShield,
-  FaFileContract,
-} from "react-icons/fa";
-
-interface Service {
-  title: string;
-  icon: React.ReactNode;
-  description: string;
-}
-
-const services: Service[] = [
-  {
-    title: "Consultoría Legal",
-    icon: <FaBook />,
-    description:
-      "Asesoramiento legal personalizado para resolver tus dudas y problemas jurídicos.",
-  },
-  {
-    title: "Juicios",
-    icon: <FaBalanceScale />,
-    description:
-      "Representación legal en juicios y litigios para defender tus derechos.",
-  },
-  {
-    title: "Mediación",
-    icon: <FaHandshake />,
-    description:
-      "Solución de conflictos a través de la mediación y el diálogo.",
-  },
-  {
-    title: "Arbitraje",
-    icon: <FaGavel />,
-    description:
-      "Resolución de disputas mediante arbitraje profesional y justo.",
-  },
-  {
-    title: "Protección de Datos",
-    icon: <FaUserShield />,
-    description: "Asesoramiento en protección de datos y privacidad.",
-  },
-  {
-    title: "Contratos",
-    icon: <FaFileContract />,
-    description:
-      "Redacción y revisión de contratos para asegurar tus intereses.",
-  },
-];
+import { SERVICES } from "../constants/content";
 
 const Services: React.FC = () => {
-  return (
-    <section id="services" className="bg-gray-50 py-16 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        <motion.h2
-          className="text-4xl font-bold text-gray-800"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Nuestros Servicios
-        </motion.h2>
-        <motion.p
-          className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Ofrecemos asesoramiento legal experto en varias áreas del derecho para
-          satisfacer todas tus necesidades jurídicas.
-        </motion.p>
-      </div>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className="bg-[#243551] p-8 rounded-2xl shadow-md flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
+  return (
+    <section id="services" className="py-24 bg-bg-light relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <motion.h4
+            className="text-accent text-sm font-bold uppercase tracking-[0.2em] mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="text-5xl text-white mb-4">{service.icon}</div>
-            <h3 className="text-2xl font-semibold text-white">
-              {service.title}
-            </h3>
-            <p className="mt-3 text-white">{service.description}</p>
-          </motion.div>
-        ))}
+            Nuestras Prácticas
+          </motion.h4>
+          <motion.h2
+            className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Excelencia Legal
+          </motion.h2>
+          <motion.p
+            className="text-secondary text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Ofrecemos asesoramiento integral con un enfoque estratégico y personalizado,
+            cubriendo las áreas más críticas del derecho moderno.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {SERVICES.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                className={`group relative p-10 bg-white rounded-none border border-gray-100 hover:border-accent transition-all duration-500 overflow-hidden ${hoveredIndex === index ? "shadow-2xl translate-y-[-5px]" : "shadow-sm"
+                  }`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Hover Background Fill */}
+                <div className="absolute inset-0 bg-primary transform scale-y-0 origin-bottom transition-transform duration-500 group-hover:scale-y-100" />
+
+                <div className="relative z-10 flex flex-col items-start h-full">
+                  <div className="mb-6 w-14 h-14 flex items-center justify-center bg-bg-light group-hover:bg-accent/20 transition-colors duration-500 rounded-lg">
+                    <Icon className="text-3xl text-primary group-hover:text-accent transition-colors duration-500" />
+                  </div>
+
+                  <h3 className="text-2xl font-serif font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-secondary group-hover:text-gray-300 transition-colors duration-500 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  <div className="mt-auto">
+                    <span className="text-accent text-sm uppercase tracking-wider font-semibold opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 flex items-center">
+                      Más Información <span className="ml-2">→</span>
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 };
 
 export default Services;
+

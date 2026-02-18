@@ -1,22 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
+  /* High-End Corporate Palette */
+  --color-primary: #0F172A; /* Deep Navy - Authority */
+  --color-secondary: #334155; /* Charcoal - Professionalism */
+  --color-accent: #D4AF37; /* Champagne Gold - Luxury/Highlight */
+  --color-bg-light: #F8FAFC; /* Off-White - Cleanliness */
+  --color-surface: #FFFFFF; /* White */
+  
+  /* Typography */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "El Messiri", sans-serif;
-}
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
+  scroll-behavior: smooth;
 }
 
-.animate-marquee {
-  display: inline-block;
-  animation: marquee 40s linear infinite;
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-bg-light: var(--color-bg-light);
+  --color-surface: var(--color-surface);
+  
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+/* Custom Utilities */
+.glass-effect {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
