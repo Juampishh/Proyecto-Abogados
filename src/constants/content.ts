@@ -8,9 +8,6 @@ import {
   FaAward,
   FaLightbulb,
   FaUserTie,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 // Interfaces
